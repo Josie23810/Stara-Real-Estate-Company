@@ -100,6 +100,7 @@ export default function App() {
 }
 function AppShell() {
     const [currentPage, setCurrentPage] = useState('home');
+    const [pageHistory, setPageHistory] = useState(['home']);
     const [selectedPropertyId, setSelectedPropertyId] = useState(null);
     const [searchFilter, setSearchFilter] = useState('all');
     const { user, signIn, signOut, notifications } = useUser();
@@ -112,6 +113,23 @@ function AppShell() {
             setSelectedPropertyId(propertyId);
         if (page === 'search')
             setSearchFilter(nextSearchFilter ?? 'all');
+        setPageHistory((prev) => {
+            if (prev[prev.length - 1] === page) return prev;
+            return [...prev, page];
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    const goBack = () => {
+        setPageHistory((prev) => {
+            if (prev.length <= 1) {
+                setCurrentPage('home');
+                return prev;
+            }
+            const nextHistory = prev.slice(0, -1);
+            setCurrentPage(nextHistory[nextHistory.length - 1]);
+            return nextHistory;
+        });
+        setShowAI(false);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     const handleShowAuth = () => setShowAuth(true);
@@ -128,6 +146,19 @@ function AppShell() {
     const showFooter = !noFooterPages.includes(currentPage);
     return (<div className="flex flex-col min-h-screen">
       <Header user={user} currentPage={currentPage} navigate={navigate} onShowAuth={handleShowAuth} onSignOut={signOut} notifications={notifications}/>
+
+      {currentPage !== 'home' && (
+        <div className="sticky top-0 z-30 border-b border-[#E7E5E0] bg-[#FAFAF8]/95 backdrop-blur-sm">
+          <div className="mx-auto max-w-6xl px-4 py-3">
+            <button onClick={goBack} className="inline-flex items-center gap-2 rounded-xl border border-[#E7E5E0] bg-white px-3 py-2 text-sm font-semibold text-[#1C1917] shadow-sm transition hover:border-[#E85D04]/40 hover:text-[#E85D04]">
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              Back
+            </button>
+          </div>
+        </div>
+      )}
 
       <main className="flex-1 pb-16 lg:pb-0">
         {currentPage === 'home' && (<HomePage navigate={navigate} user={user} onShowAuth={handleShowAuth}/>)}
