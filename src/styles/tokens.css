@@ -1,0 +1,76 @@
+/**
+ * STAWI DESIGN TOKENS
+ * Single source of truth for the Stawi colour system.
+ * Do not hard-code hex colours in components — reference these tokens
+ * (via Tailwind's @theme mapping below, or var(--color-*) in raw CSS/inline styles).
+ *
+ * Brand palette source: src/imports/pasted_text/stawi-platform-brief.md
+ * Orange = primary action, gold = secondary accent, navy = dark UI / text emphasis.
+ */
+
+@theme {
+  /* ---- Brand ---- */
+  --color-primary: #E85D04;
+  --color-primary-light: #FF7A1A;
+  --color-primary-dark: #C54D03;
+  --color-secondary: #1A2234;      /* navy */
+  --color-secondary-light: #2A3450;
+  --color-secondary-dark: #10151F;
+  --color-accent: #F4A100;         /* gold */
+  --color-accent-light: #FFB830;
+  --color-accent-dark: #C77F00;
+
+  /* ---- Surfaces ---- */
+  --color-background: #FAFAF8;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F5F4F0;
+
+  /* ---- Text ---- */
+  --color-text: #1C1917;
+  --color-text-muted: #78716C;
+  --color-text-inverse: #FFFFFF;
+
+  /* ---- Borders ---- */
+  --color-border: #E7E5E0;
+  --color-border-strong: #D1CEC9;
+
+  /* ---- Semantic / status ---- */
+  --color-success: #16A34A;
+  --color-success-bg: #F0FDF4;
+  --color-warning: #D97706;
+  --color-warning-bg: #FFFBEB;
+  --color-error: #DC2626;
+  --color-error-bg: #FEF2F2;
+  --color-info: #2563EB;
+  --color-info-bg: #EFF6FF;
+
+  /* ---- Interaction states ---- */
+  --color-primary-hover: #C54D03;
+  --color-primary-active: #A83F02;
+  --color-secondary-hover: #2A3450;
+  --color-secondary-active: #0C0F17;
+  --color-accent-hover: #C77F00;
+  --color-accent-active: #A66900;
+  --color-disabled-bg: #F0EFEA;
+  --color-disabled-text: #A8A29E;
+  --color-disabled-border: #E7E5E0;
+
+  /* ---- Legacy aliases (kept so existing components using --color-stawi-* / --color-gold don't break) ---- */
+  --color-gold: #F4A100;
+  --color-gold-light: #FFB830;
+  --color-stawi-bg: #FAFAF8;
+  --color-stawi-card: #FFFFFF;
+  --color-stawi-foreground: #1C1917;
+  --color-stawi-muted: #F5F4F0;
+  --color-stawi-muted-fg: #78716C;
+  --color-stawi-border: #E7E5E0;
+  --color-stawi-navy: #1A2234;
+
+  /* ---- Typography / radius (unchanged, centralized here too) ---- */
+  --font-sans: 'Poppins', system-ui, sans-serif;
+  --font-serif: 'Poppins', system-ui, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
