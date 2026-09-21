@@ -1,3 +1,5 @@
+import image08 from '../../image08.jpg';
+
 export const PROPERTIES = [
     {
         id: 'p1',
@@ -45,7 +47,7 @@ export const PROPERTIES = [
         area: 4200,
         areaUnit: 'sqft',
         images: [
-            'https://images.unsplash.com/photo-1512917774080-9991f1c7f685?w=900&h=600&fit=crop&auto=format',
+            image08,
             'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&h=600&fit=crop&auto=format',
             'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&h=600&fit=crop&auto=format',
         ],

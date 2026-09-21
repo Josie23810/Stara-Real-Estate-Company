@@ -84,8 +84,14 @@ export default function Footer({ navigate }) {
           <div>
             <h4 className="font-semibold text-sm text-white mb-4">Company</h4>
             <ul className="space-y-2.5">
-              {['About STARA', 'About Zoey', 'Careers', 'Press', 'Advertise', 'Contact Us'].map((item) => (<li key={item}>
-                  <button className="text-sm text-[#8B949E] hover:text-[#F4A100] transition-colors">
+              {['About STARA', 'Careers', 'Press', 'Advertise', 'Contact Us'].map((item) => (<li key={item}>
+                  <button
+                    onClick={() => {
+                if (item === 'About STARA') navigate('about');
+                if (item === 'Contact Us') window.location.href = 'mailto:hello@stara.co.ke?subject=STARA%20enquiry';
+            }}
+                    className="text-sm text-[#8B949E] hover:text-[#F4A100] transition-colors"
+                  >
                     {item}
                   </button>
                 </li>))}

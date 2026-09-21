@@ -21,6 +21,7 @@ import FinancialToolsPage from './pages/FinancialToolsPage';
 import AdminPage from './pages/AdminPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
+import AboutPage from './pages/AboutPage';
 import InstallPrompt from './components/InstallPrompt';
 // Placeholder pages for Community and Help
 function CommunityPage({ navigate }) {
@@ -130,6 +131,7 @@ function AppShell() {
 
       <main className="flex-1 pb-16 lg:pb-0">
         {currentPage === 'home' && (<HomePage navigate={navigate} user={user} onShowAuth={handleShowAuth}/>)}
+        {currentPage === 'about' && (<AboutPage navigate={navigate} onShowAuth={handleShowAuth}/>)}
         {currentPage === 'search' && (<SearchPage navigate={navigate} onShowAuth={handleShowAuth} initialListingFilter={searchFilter}/>)}
         {currentPage === 'property' && (<PropertyDetailPage navigate={navigate} propertyId={selectedPropertyId} user={user} onShowAuth={handleShowAuth}/>)}
         {currentPage === 'dashboard' && user && (<DashboardPage navigate={navigate} user={user}/>)}

@@ -67,8 +67,8 @@
   --color-stawi-navy: #1A2234;
 
   /* ---- Typography / radius (unchanged, centralized here too) ---- */
-  --font-sans: 'Poppins', system-ui, sans-serif;
-  --font-serif: 'Poppins', system-ui, sans-serif;
+  --font-sans: 'Poppins', sans-serif;
+  --font-serif: 'Poppins', sans-serif;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;

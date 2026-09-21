@@ -145,7 +145,7 @@ function figmaSiteConfiguration(config) {
     background: #111827;
     color: #fff;
     padding: 8px 12px;
-    font: 600 14px/1.2 system-ui, sans-serif;
+    font: 600 14px/1.2 'Poppins', sans-serif;
     text-decoration: none;
   }
   .figma-bypass-link:focus {

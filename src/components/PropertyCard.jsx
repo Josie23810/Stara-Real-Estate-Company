@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { formatPrice } from '../data/mockData';
 export default function PropertyCard({ property, navigate, onSave, saved = false, compact = false }) {
     const [isSaved, setIsSaved] = useState(saved);
     const [imgError, setImgError] = useState(false);
+    useEffect(() => {
+        setImgError(false);
+    }, [property.images[0]]);
     const handleSave = (e) => {
         e.stopPropagation();
         setIsSaved(!isSaved);
